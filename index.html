@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meeting Action Tracker™</title>
+<meta name="description" content="Turn meeting notes into owned, dated actions with clear overdue status and local CSV export.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to tracker</a>
+<header class="hero">
+  <div><span class="eyebrow">UBuildOS™ 30-Day Public Campaign • Day 02</span><h1>Meeting Action Tracker™</h1><p class="lede">Turn meeting notes into owned, dated actions—without pretending the tool can email, assign, or update external systems for you.</p></div>
+  <div class="hero-note"><strong>Local by design</strong><span>No network calls. Sample data only. Browser localStorage persistence.</span></div>
+</header>
+<main id="main">
+<section class="explain grid-2" aria-labelledby="explain-title"><div><h2 id="explain-title">What this is</h2><p>A small accountability tool for turning a meeting handoff into explicit actions with an owner, due date, status, overdue signal, and CSV export.</p></div><div><h2>What this is not</h2><p>It does not send emails, write calendars, assign tasks in external systems, or use private customer data. It makes no autonomous external changes.</p></div></section>
+<section class="metrics" aria-label="Action summary"><div><strong id="count-open">0</strong><span>Open</span></div><div><strong id="count-overdue">0</strong><span>Overdue</span></div><div><strong id="count-done">0</strong><span>Completed</span></div></section>
+<section class="workspace grid-2">
+  <div class="panel"><h2 id="form-title">Add an action</h2><form id="action-form" novalidate>
+    <label for="action-text">Action</label><textarea id="action-text" rows="3" required placeholder="What needs to happen?"></textarea>
+    <label for="action-owner">Owner</label><input id="action-owner" required placeholder="Who owns it?">
+    <label for="action-due">Due date</label><input id="action-due" type="date" required>
+    <div class="form-actions"><button id="save-action" type="submit">Add action</button><button id="cancel-edit" type="button" class="secondary" hidden>Cancel edit</button></div>
+    <p id="message" class="message" role="status" aria-live="polite"></p>
+  </form></div>
+  <div class="panel"><div class="panel-head"><div><h2>Action board</h2><p>Overdue open work rises to the top. Completed work stays visible.</p></div><div class="toolbar"><button id="export-csv" type="button" class="secondary">Export CSV</button><button id="reset-sample" type="button" class="secondary">Reset sample</button></div></div><div id="action-list" class="action-list"></div></div>
+</section>
+<section class="guide"><h2>Quick guide</h2><ol><li>Create an action with action text, owner, and due date.</li><li>Edit any action without changing its stable ID.</li><li>Complete or reopen actions as work changes.</li><li>An incomplete action is overdue when its due date is earlier than today.</li><li>Export the current action set as CSV; the file is generated in your browser.</li><li>Reset restores the original synthetic sample data.</li></ol><p><strong>Data behavior:</strong> data is stored only in this browser's localStorage. No network or external service is used by the product.</p></section>
+<section class="proof"><h2>Measured evidence</h2><p>Producer tests cover create, edit, complete/reopen logic, overdue boundaries, stable identity, invalid inputs, CSV generation, security/privacy/no-network checks, and static accessibility/readability checks. Human live-browser review remains a separate gate.</p></section><section class="proof"><h2>UBuildOS value</h2><p>This release shows the method around the product: locked scope, explicit requirements, evidence-bound QA, Safe-Change repair when a claim defect is found, and separate Fresh IQA, owner, and publication gates.</p></section>
+<pre id="selftest-output" class="selftest" aria-live="polite"></pre>
+</main>
+<footer>Meeting Action Tracker™ v1.0.0 • Synthetic public demo • Try the method.</footer>
+<script src="logic.js"></script><script src="app.js"></script>
+</body></html>
